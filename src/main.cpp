@@ -1,13 +1,11 @@
 #include <Arduino.h>
 #include <math.h>
 
-// Geometry constants
 const float R = 35.0;
 const float r = 20.0;
 const float h = 26.5;
 const float Ln = sqrt((R - r) * (R - r) + h * h);
 
-// Joystick pins and parameters
 const int joystickX = A6;
 const int joystickY = A7;
 const int joystickButton = 2; 
@@ -18,13 +16,11 @@ const int DEAD_ZONE = 100;      // Dead zone threshold
 const int SAMPLES = 10;        // Number of samples for averaging
 const int SAMPLE_DELAY = 1;    // Delay between samples in ms
 
-// Add timing variables
 unsigned long previousMillis = 0;
 unsigned long analogReadInterval = 5;
 unsigned long lastJoystickUpdate = 0;
 const unsigned long JOYSTICK_UPDATE_INTERVAL = 50; // Update every 50ms
 
-// Data structure of cylinder with timing variables
 struct Cylinder {
   int potPin;    
   int relayA;    
@@ -369,7 +365,6 @@ void setup() {
   pinMode(joystickY, INPUT);
   pinMode(joystickButton, INPUT_PULLUP);
   
-  // Initialize relays
   for (int i = 0; i < 3; i++) {
     pinMode(cylinders[i].relayA, OUTPUT);
     pinMode(cylinders[i].relayB, OUTPUT);
