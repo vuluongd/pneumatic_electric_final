@@ -132,16 +132,7 @@ void calculateAllCylinders(float alpha, float beta, Cylinder cylinders[], int nu
   }
 }
 void handleButton() {
-  // Read current button state
-  bool currentButtonState = digitalRead(joystickButton);
-  
-  // Print button state for debugging
-  Serial.print("Button Raw State: ");
-  Serial.println(currentButtonState);
-  
-  // Check for button press (transition from HIGH to LOW)
-  if (currentButtonState == LOW && lastButtonState == HIGH) {
-    Serial.println("BUTTON PRESSED!");
+  bool currentButtonState = digitalRead(joystickButton)
     
     if (!isCalibrating && !systemEnabled) {
       Serial.println("Starting calibration...");
@@ -377,10 +368,9 @@ void setup() {
 }
 
 void loop() {
-  // Always handle button input
+
   handleButton();
   
-  // Print system state every second
   static unsigned long lastDebugPrint = 0;
   if (millis() - lastDebugPrint >= 1000) {
     Serial.print("System State - Calibrating: ");
@@ -397,6 +387,5 @@ void loop() {
     handleJoystickControl();
   }
   
-  // Small delay to prevent serial flooding
   delay(50);
 }
