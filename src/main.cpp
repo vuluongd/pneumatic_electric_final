@@ -194,7 +194,7 @@ void calibrateCylinders() {
         cylinders[i].analogReadCount = 0;
       }
     }
-    return;  // Exit function after phase 1
+    return; 
   }
 
   if (!phase2Complete) {
@@ -232,11 +232,10 @@ void calibrateCylinders() {
     if (allCylindersComplete) {
       phase2Complete = true;
     }
-    return;  // Exit function after phase 2
+    return;  
   }
 
   // Phase 3: Complete calibration only when both phases are done
-  // Verify all values are valid
   bool validCalibration = true;
   for (int i = 0; i < 3; i++) {
     if (cylinders[i].analogMin == 0 || cylinders[i].analogMax == 0 || 
@@ -343,7 +342,6 @@ void handleJoystickControl() {
         lastDebugPrint = millis();
     }
     
-    // Calculate and control cylinders
     calculateAllCylinders(radians(pitch), radians(yaw), cylinders, 3);
     controlCylinders(cylinders, 3);
 }
