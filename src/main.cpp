@@ -12,14 +12,14 @@ const int joystickButton = 2;
 const int centerValue = 512;
 const int minValue = 0;
 const int maxValue = 1023;
-const int DEAD_ZONE = 100;      // Dead zone threshold
-const int SAMPLES = 10;        // Number of samples for averaging
-const int SAMPLE_DELAY = 1;    // Delay between samples in ms
+const int DEAD_ZONE = 100;      
+const int SAMPLES = 10;        
+const int SAMPLE_DELAY = 1;   
 
 unsigned long previousMillis = 0;
 unsigned long analogReadInterval = 5;
 unsigned long lastJoystickUpdate = 0;
-const unsigned long JOYSTICK_UPDATE_INTERVAL = 50; // Update every 50ms
+const unsigned long JOYSTICK_UPDATE_INTERVAL = 50; 
 
 struct Cylinder {
   int potPin;    
